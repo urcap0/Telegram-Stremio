@@ -408,7 +408,7 @@ async def get_stream_stats():
             # No data flow → check inactivity timeout
             if now - info["last_activity_ts"] > INACTIVE_TIMEOUT:
                 if status == "active":
-                    info["status"] = "inactive"
+                    info["status"] = "cancelled"
                     info["end_ts"] = now
                     
         if info.get("status") in ("cancelled", "error", "finished", "inactive"):
